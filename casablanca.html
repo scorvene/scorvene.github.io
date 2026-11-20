@@ -7,9 +7,18 @@
   <style>
     body {
       font-family: system-ui, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: 4rem 1rem;
+      box-sizing: border-box;
+      color: #fff;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+        url("C:\Users\scorve01\OneDrive - Tufts\Desktop\CasablancaPoster-Gold.jpg") center / cover no-repeat fixed;
+    }
+    .container {
       max-width: 600px;
-      margin: 4rem auto;
-      padding: 0 1rem;
+      margin: 0 auto;
     }
     button {
       padding: 0.5rem 1rem;
@@ -21,16 +30,18 @@
       font-size: 1.25rem;
     }
     #speaker {
-      color: #555;
+      color: #ddd;
       margin-top: 0.25rem;
     }
   </style>
 </head>
 <body>
-  <h1>Casablanca Quotes</h1>
-  <button id="next-quote" type="button">Random Quote</button>
-  <p id="quote"></p>
-  <p id="speaker"></p>
+  <div class="container">
+    <h1>Casablanca Quotes</h1>
+    <button id="next-quote" type="button">Random Quote</button>
+    <p id="quote"></p>
+    <p id="speaker"></p>
+  </div>
 
   <script>
     const quotes = [
@@ -38,10 +49,11 @@
       { text: "Here's looking at you, kid.", speaker: "Rick Blaine" },
       { text: "Play it once, Sam. For old times' sake.", speaker: "Ilsa Lund" },
       { text: "Round up the usual suspects.", speaker: "Captain Renault" },
-      { text: "Major Strasser's been shot.", speaker: "Captain Renault" },
       { text: "We'll always have Paris.", speaker: "Rick Blaine" },
       { text: "If she can stand it, I can! Play it!", speaker: "Rick Blaine" },
       { text: "I'm shocked, shocked to find that gambling is going on in here!", speaker: "Captain Renault" },
+      { text: "Major Strasser's been shot.", speaker: "Captain Renault" },
+      { text: "Hide me, Rick!.", speaker: "Ugarte" },
       { text: "Louie, I think this is the beginning of a beautiful friendship.", speaker: "Rick Blaine" }
     ];
 
