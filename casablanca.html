@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casablanca Random Quote</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #quote {
+      margin-top: 1.5rem;
+      font-size: 1.25rem;
+    }
+    #speaker {
+      color: #555;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Casablanca Quotes</h1>
+  <button id="next-quote" type="button">Random Quote</button>
+  <p id="quote"></p>
+  <p id="speaker"></p>
+
+  <script>
+    const quotes = [
+      { text: "Of all the gin joints in all the towns in all the world, she walks into mine.", speaker: "Rick Blaine" },
+      { text: "Here's looking at you, kid.", speaker: "Rick Blaine" },
+      { text: "Play it once, Sam. For old times' sake.", speaker: "Ilsa Lund" },
+      { text: "Round up the usual suspects.", speaker: "Captain Renault" },
+      { text: "Major Strasser's been shot.", speaker: "Captain Renault" },
+      { text: "We'll always have Paris.", speaker: "Rick Blaine" },
+      { text: "If she can stand it, I can! Play it!", speaker: "Rick Blaine" },
+      { text: "I'm shocked, shocked to find that gambling is going on in here!", speaker: "Captain Renault" },
+      { text: "Louie, I think this is the beginning of a beautiful friendship.", speaker: "Rick Blaine" }
+    ];
+
+    const quoteEl = document.getElementById("quote");
+    const speakerEl = document.getElementById("speaker");
+    const buttonEl = document.getElementById("next-quote");
+    let lastIndex = -1;
+
+    function showRandomQuote() {
+      let index;
+      do {
+        index = Math.floor(Math.random() * quotes.length);
+      } while (quotes.length > 1 && index === lastIndex);
+
+      lastIndex = index;
+      const item = quotes[index];
+      quoteEl.textContent = `"${item.text}"`;
+      speakerEl.textContent = `— ${item.speaker}`;
+    }
+
+    buttonEl.addEventListener("click", showRandomQuote);
+    showRandomQuote();
+  </script>
+</body>
+</html>
